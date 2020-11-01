@@ -46,8 +46,8 @@ userSchema.virtual('password')
 
 userSchema.methods = {
 
-    authenticate: function (palinText) {
-        return this.encryptPassword(palinText) === this.hashed_password;
+    authenticate: function (plaintText) {
+        return this.encryptPassword(plaintText) === this.hashed_password;
     },
     encryptPassword: function (password) {
         if (!password) {

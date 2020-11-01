@@ -1,4 +1,5 @@
 exports.userSignupValidator = (req, res, next) => {
+   
     req.check('name', 'Name is required').notEmpty();
     req.check('email', "email must be between 3 to 32 characters")
         .matches(/.+\@.+\..+/)
@@ -9,9 +10,10 @@ exports.userSignupValidator = (req, res, next) => {
         });
     req.check('password', "Pasword is required").notEmpty();
     req.check("password").isLength({ min: 6 })
-        .withMessage("Password must contain at least 6 characters")
+        .withMessage("Паролата трябва да съдържа поне 6 символа")
         .matches(/\d/)
-        .withMessage("Password must contain a number");
+        .withMessage("Паролата трябва да съдържа цифра");
+       
 
     const errors = req.validationErrors();
 
